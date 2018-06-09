@@ -32,15 +32,24 @@
     "eslint"
   ],
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "body-parser": "^1.18.2",
+    "cheerio": "^1.0.0-rc.2",
+    "child_process": "^1.0.2",
     "express": "^4.16.2",
+    "express-graphql": "^0.6.12",
+    "graphql": "^14.0.0-rc.2",
     "morgan": "^1.9.0",
+    "promised-mongo": "^1.2.0",
     "pug": "^2.0.0-beta11",
-    "rimraf": "^2.6.2"
+    "request": "^2.87.0",
+    "rimraf": "^2.6.2",
+    "then-mongo": "^3.0.2",
+    "util": "^0.11.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.3",
