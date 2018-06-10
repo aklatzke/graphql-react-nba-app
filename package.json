@@ -33,7 +33,7 @@
   },
   "scripts": {
     "postinstall": "cd server && npm i",
-    "start": "node ./server/src/app",
+    "start": "node ./server/src/",
     "build": "react-scripts build && rm -rf server/public && mv build server/public",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
