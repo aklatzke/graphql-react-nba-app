@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/db/index.js"],"names":["players"],"mappings":";;;;;;AAAA;;;;;;kBAEe;AACXA,aAASA;AADE,C","file":"index.js","sourcesContent":["import players from './player'\n\nexport default {\n    players: players\n}\n"]}

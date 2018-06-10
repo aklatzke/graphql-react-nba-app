@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/routes/main.js"],"names":["routes"],"mappings":";;;;;;kBAAgBA,MAAD,IAAY;AACvB,WAAOA,MAAP;AACH,C","file":"main.js","sourcesContent":["export default (routes) => {\n    return routes;\n}\n\n"]}

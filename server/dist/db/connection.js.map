@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/db/connection.js"],"names":["db","process","env","MONGODB_URI"],"mappings":";;;;;;AAAA;;;;;;AAEA,IAAIA,KAAK,yBAAMC,QAAQC,GAAR,CAAYC,WAAZ,IAA2B,KAAjC,CAAT;;kBAEeH,E","file":"connection.js","sourcesContent":["import mongo from 'then-mongo';\n\nlet db = mongo(process.env.MONGODB_URI || 'nba');\n\nexport default db;"]}

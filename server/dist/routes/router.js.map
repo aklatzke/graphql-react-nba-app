@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/routes/router.js"],"names":[],"mappings":";;;;;;AAAA;;kBAEe,sB","file":"router.js","sourcesContent":["import { Router } from 'express';\n\nexport default Router();\n"]}
