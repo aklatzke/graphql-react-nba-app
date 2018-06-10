@@ -2,6 +2,9 @@
   "name": "react-graphql",
   "version": "0.1.0",
   "private": true,
+  "engines" : {
+    "node" : "10.4.0"
+  },
   "dependencies": {
     "apollo-boost": "^0.1.7",
     "cheerio": "^1.0.0-rc.2",
