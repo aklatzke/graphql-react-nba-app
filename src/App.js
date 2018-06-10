@@ -49,8 +49,7 @@ class App extends Component {
       <ApolloProvider client={client}>
         <div className="App">
           <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Players</h1>
+            <h1>NBA Player Stats/Graphs</h1>
           </header>
           { this.maybeRenderSearch() }
         </div>      

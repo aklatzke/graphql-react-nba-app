@@ -37,6 +37,11 @@
   border: 1px solid #cdcdcd;
   outline: none !important;
   margin-top: 20px;
+  width: 600px;
+  font-size: 20px;
+  font-weight: 300;
+  font-family: Montserrat;
+  text-align: center;
 }
 
 .search-result{
@@ -45,6 +50,11 @@
   cursor: pointer;
   line-height: 24px;
   text-align: left;
+  padding-left: 60px;
+  padding-right: 60px;
+  font-size: 16px;
+  font-weight: 300;
+  font-family: Montserrat;
   background-color: #fff;
 }
 
@@ -62,6 +72,9 @@
   overflow-y: auto;
   position: absolute;
   z-index: 999;
+  left: 0;
+  right: 0;
+  top: calc(100% - 2px);
 }
 
 .search-menu:empty{
@@ -72,7 +85,11 @@
   padding: 0px;
   margin: 0px;
   padding-top: 40px;
-  text-align: left;
+  padding-bottom: 40px;
+  margin-top: 20px;
+  text-align: center;
+  background-position: bottom;
+  background-size: 100% auto;
 }
 
 .icon-wrapper img{
@@ -89,18 +106,19 @@
   padding-top: 30px;
   margin-right: 20px;
   margin-left: 20px;
+  margin-bottom: 20px;
 }
 
 .player-card span {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   position: absolute;
   left: 0;
   right: 0;
   text-align: center;
   top: 15px;
   font-family: Montserrat;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .player-card img{
@@ -114,7 +132,7 @@
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: rgba(0,0,0,.5)
+  background-color: rgba(0,0,0,.2)
 }
 
 .stats-buttons{
@@ -130,7 +148,7 @@
   padding: 4px 6px;
   border-radius: 4px;
   margin-bottom: 10px;
-  text-align: left;
+  text-align: center;
 }
 
 .stats-buttons button.active{
@@ -145,9 +163,30 @@
   padding: 4px 6px;
   border-radius: 4px;
   margin-bottom: 10px;
-  text-align: left;
+  text-align: center;
 }
 
 .graph-types{
   margin-top: 20px;
+}
+
+.Select{
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: middle;
+  width: 250px;
+  top: -4px;
+}
+
+.App .Select-control{
+  height: 50px;
+}
+
+.App .Select-input input{
+  line-height: 36px;
+}
+
+.App .Select-placeholder{
+  line-height: 50px;
+  font-family: Montserrat;
 }
