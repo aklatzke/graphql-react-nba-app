@@ -1,0 +1,47 @@
+.expander{
+    position: relative;
+    text-align:left;
+}
+
+.expander button{
+    outline: none;
+    cursor: pointer;
+}
+
+.expand-button button{
+    width: 120px;
+    font-weight: bold;
+    text-align:center;
+    border-left: 1px solid #cdcdcd;
+    margin-right: 0px;
+}
+
+.expander .stat-button{
+    margin-right: 0px;
+    border-radius: 0px;
+    border-left: 0;
+    border-right: 1px solid #cdcdcd;
+}
+
+.expander .stat-button:last-child{
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.expander .expand-button{
+    display: inline-block;
+}
+
+.expander.expanded .expand-button button{
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    background-color: #222;
+    color: white;
+}
+
+
+
+
+
+
+

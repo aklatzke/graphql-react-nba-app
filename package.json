@@ -29,7 +29,7 @@
     "build": "src/**/*.js"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node ./server/src/app",
     "build": "react-scripts build && rm -rf server/public && mv build server/public",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
