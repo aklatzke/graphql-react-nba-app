@@ -32,6 +32,7 @@
     "build": "src/**/*.js"
   },
   "scripts": {
+    "preinstall": "cd server && npm build",
     "postinstall": "cd server && npm i && npm build",
     "start": "node ./server/dist/index",
     "build": "react-scripts build && rm -rf server/public && mv build server/public",
