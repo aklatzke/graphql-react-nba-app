@@ -48,7 +48,7 @@ class App extends Component {
       <ApolloProvider client={client}>
         <div className="App">
           <header className="App-header">
-            <h1>NBA Player Stats/Graphs</h1>
+            <h1><i className="fas fa-basketball-ball"></i> NBA Player Stats/Graphs</h1>
           </header>
           { this.maybeRenderSearch() }
         </div>      

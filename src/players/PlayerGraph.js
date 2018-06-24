@@ -35,7 +35,7 @@ export default class PlayerGraph extends Component {
  
   renderGraph(updatedStats = false){
     updatedStats = updatedStats ? updatedStats : this.state.activeStats;
-    console.log(this.props.players);
+
     let newStats = this.props.players.map(player => ({
       x: updatedStats.map(stat => stats[stat]),
       y: updatedStats.map(stat => player[stat]),

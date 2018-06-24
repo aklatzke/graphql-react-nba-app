@@ -1,6 +1,8 @@
 .player-vis{
     width: 49%;
     float: right;
+    padding-right: 40px;
+    box-sizing: border-box;
 }
 
 #viz{
@@ -9,4 +11,25 @@
 h6.plot-heading{
     font-size: 18px;
     font-weight: 100;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.graph-container{
+    clear: both;
+    overflow: auto;
+    padding-bottom: 60px;
+}
+
+.viz-container{
+    position: relative;
+}
+
+.fullscreen-btn{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 9999999999999999;
+    font-size: 24px;
+    cursor: pointer
 }

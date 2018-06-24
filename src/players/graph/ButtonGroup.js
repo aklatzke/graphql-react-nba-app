@@ -40,7 +40,7 @@ export default class ButtonGroup extends Component {
           return <button class='stat-button' onClick={ () => this.toggle(item) }>{ this.props.labelMap[item] }</button>
         }
       } )
-    } 
+    }   
   }
 
   toggleExpand(){
@@ -55,8 +55,9 @@ export default class ButtonGroup extends Component {
         <div className='expand-button'>
           <button onClick={ () => this.toggleExpand() }>{ this.props.label }</button>
         </div>
-
-        { this.maybeRenderButtons() }
+        <div className='expand-button-container'>
+          { this.maybeRenderButtons() }
+        </div>
       </div>
     )
   }

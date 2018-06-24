@@ -4,7 +4,7 @@ import ImageFallback from 'react-image-fallback';
 export default class Player extends Component {
   constructor(props){
     super(props);
-    console.log(this.props.player)
+
     let nameParts = this.props.player.fullname.split(" ");
     this.firstName = nameParts.shift().toLowerCase();
     this.lastName = [...nameParts].join("-").toLowerCase();

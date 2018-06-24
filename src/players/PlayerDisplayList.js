@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Player from './Player';
 import CourtBackground from '../img/etc/court.jpg';
-
+ 
 export default class PlayerDisplayList extends Component {
   constructor(props){
     super(props); 
 
-    this.state = {
+    this.state = { 
       players: this.props.players || []
     }
 

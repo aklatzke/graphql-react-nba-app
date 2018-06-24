@@ -1,6 +1,16 @@
 .expander{
     position: relative;
     text-align:left;
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.expand-button-container{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99999999999999;
 }
 
 .expander button{
@@ -14,6 +24,7 @@
     text-align:center;
     border-left: 1px solid #cdcdcd;
     margin-right: 0px;
+    margin-bottom: 0px;
 }
 
 .expander .stat-button{
@@ -21,11 +32,14 @@
     border-radius: 0px;
     border-left: 0;
     border-right: 1px solid #cdcdcd;
+    border: 1px solid #cdcdcd;
+    margin-bottom: 0px;
+    width: 100%;
 }
 
 .expander .stat-button:last-child{
-    border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
 }
 
 .expander .expand-button{
@@ -33,7 +47,7 @@
 }
 
 .expander.expanded .expand-button button{
-    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
     background-color: #222;
     color: white;
