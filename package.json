@@ -2,13 +2,14 @@
   "name": "react-graphql",
   "version": "0.1.0",
   "private": true,
-  "engines" : {
-    "node" : "10.4.0"
+  "engines": {
+    "node": "10.4.0"
   },
   "dependencies": {
     "apollo-boost": "^0.1.7",
     "cheerio": "^1.0.0-rc.2",
     "child_process": "^1.0.2",
+    "concurrently": "^3.6.0",
     "express-graphql": "^0.6.12",
     "graphql": "^14.0.0-rc.2",
     "graphql-tag": "^2.9.2",
@@ -38,6 +39,6 @@
     "build": "react-scripts build && rm -rf server/public && mv build server/public",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "watch": "npm-watch"
+    "watch": "concurrently 'npm-watch' 'cd server && npm run dev'"
   }
 }

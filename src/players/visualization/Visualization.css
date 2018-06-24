@@ -1,0 +1,12 @@
+.player-vis{
+    width: 49%;
+    float: right;
+}
+
+#viz{
+}
+
+h6.plot-heading{
+    font-size: 18px;
+    font-weight: 100;
+}

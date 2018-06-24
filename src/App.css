@@ -15,6 +15,11 @@
   color: white;
 }
 
+.App-header h1{
+  text-align: left;
+  font-size: 20px;
+}
+
 .App-title {
   font-size: 1.5em;
 }
@@ -188,4 +193,9 @@
 .App .Select-placeholder{
   line-height: 50px;
   font-family: Montserrat;
+}
+
+.players-graph{
+  width: 50%;
+  float: left;
 }

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
-import Player from './players/Player';
 import PlayerSearch from './players/PlayerSearch';
 
 import { ApolloProvider } from 'react-apollo';
@@ -39,12 +38,12 @@ class App extends Component {
       players: result.data.players
     }) )
   }
-
+ 
   maybeRenderSearch(){
     return this.state.players.length ? <PlayerSearch players={this.state.players}/> : '';
   }
- 
-  render() {
+   
+  render() { 
     return (
       <ApolloProvider client={client}>
         <div className="App">

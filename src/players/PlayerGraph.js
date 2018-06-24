@@ -35,7 +35,7 @@ export default class PlayerGraph extends Component {
  
   renderGraph(updatedStats = false){
     updatedStats = updatedStats ? updatedStats : this.state.activeStats;
-
+    console.log(this.props.players);
     let newStats = this.props.players.map(player => ({
       x: updatedStats.map(stat => stats[stat]),
       y: updatedStats.map(stat => player[stat]),
@@ -49,7 +49,7 @@ export default class PlayerGraph extends Component {
       plot: {
         data: newStats,
         layout: {
-          width: 1000,
+          width: 500,
           height: 450
         }
       }
@@ -94,7 +94,9 @@ export default class PlayerGraph extends Component {
 
   render() {
     return ( 
-      <div>
+      <div className='players-graph'>
+        <h6 className='plot-heading'>Stats</h6>
+        <legend><small>Select items to add from the menus below.</small></legend>
         <div class='stats-buttons'>
           <ButtonGroup 
             label="Graph Types"

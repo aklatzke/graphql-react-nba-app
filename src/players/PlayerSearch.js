@@ -1,11 +1,50 @@
 import React, { Component } from 'react';
-import Autocomplete from 'react-autocomplete';
 
-import PlayerList from './PlayerList';
-import TeamSelector from './team/TeamSelector';
-
+import { client, gql } from '../graphql';
 import { teams } from "../etc/maps";
+
+import Autocomplete from './autocomplete/Autocomplete';
+import TeamSelector from './team/TeamSelector';
 import PlayerDisplayList from './PlayerDisplayList';
+import PlayerGraph from './PlayerGraph';
+import PlayerVisualization from './visualization/Visualization';
+
+const PLAYER_QUERY = gql`
+  query playersById( $ids: [String] ){
+    playersById( ids: $ids ){
+      _id,
+      fullname,
+      year,
+      team,
+      gp,
+      pos,
+      age,
+      mpg,
+      min_per,
+      usg_per,
+      tor,
+      fta,
+      ft_per,
+      two_pa,
+      two_per,
+      three_pa,
+      three_per,
+      efg_per,
+      ts_per,
+      ppg,
+      rpg,
+      trb_per,
+      apg,
+      ast_per,
+      spg,
+      bpg,
+      topg,
+      vi,
+      ortg,
+      drtg
+    }
+  }
+`;
 
 export default class PlayerSearch extends Component {
   constructor(props){
@@ -17,98 +56,56 @@ export default class PlayerSearch extends Component {
       playerData : []
     }
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSelection = this.handleSelection.bind(this);
-    this.shouldRender = this.shouldRender.bind(this);
-    this.renderItem = this.renderItem.bind(this);
-
     this.teams = teams;
-
-    this.addPlayers = this.addPlayers.bind(this);
-    this.setPlayerData = this.setPlayerData.bind(this);
+    this.playerData = [];
   }
 
-  addPlayers(players){
-    this.setState({
-      playerData: [...this.state.playerData, ...players]
-    })
+  addPlayers = (players) =>{
+      if( ! Array.isArray(players) ){
+        players = [players];
+      }
+
+      this.refreshPlayerData([...this.state.players, ...players])      
   }
 
-  setPlayerData( playerData ){
-    this.setState({
-      playerData: playerData
-    })
+  refreshPlayerData = (players) => {
+      client.query({
+        query: PLAYER_QUERY,
+        variables: {
+          ids: players
+        }
+      })
+      .then(({data}) => {
+        this.playerData = [...data.playersById];
+
+        this.setState({ 
+          playerData: [...data.playersById],
+          players: players
+        })
+      })  
   }
 
-  handleChange(event){
-    this.setState({
-      input: event.target.value
-    })
-  }
+  removePlayer = (id) => {
+    let newPlayersArray = [...this.state.players].filter( pId => pId !== id );
 
-  renderItem( item, isHighlighted ){
-    return <div className="search-result" key={item.fullname}>{item.fullname} 
-            <span className="icon-wrapper"><img src={ require(`../img/${this.teams[item.team]}.gif`) } /></span>
-           </div>
-  }
-
-  handleSelection(value){
-    this.setState({
-      players: [...this.state.players, value],
-      input: ''
-    })
-  }
-
-  shouldRender( item, value ){
-    if( value.length < 3){
-      return false;
-    }
-
-    return item.fullname.toLowerCase().includes(value.toLowerCase());
-  }
-
-  maybeRenderPlayers(){
-    if( this.state.players.length && (this.state.players.length !== this.state.playerData.length)){
-      return <PlayerList setPlayerData={this.setPlayerData} players={this.state.players}></PlayerList>
-    }
-
-    return ''; 
-  }
-
-  maybeRenderPlayerDisplay(){
-    if( this.state.playerData.length ){
-      return <PlayerDisplayList players={this.state.playerData} />
-    }
+    this.refreshPlayerData(newPlayersArray)
   }
 
   render() {
     return (
       <div>
         <p class='legend'><small>Enter a player's name below to search. Adding a player after generating a plot will reset the plot data and filters.</small></p>
-        <Autocomplete 
-          getItemValue={ (item) => item._id }
-          items={this.props.players}
-          renderItem={ this.renderItem }
-          shouldItemRender={this.shouldRender}
-          value={this.state.input}
-          onChange={this.handleChange}
-          onSelect={this.handleSelection} 
-          inputProps={{
-            className : "search-input",
-            placeholder : "Search for a player"
-          }}
-          wrapperStyle={{ 
-            position: "relative",
-            display: "inline-block" 
-          }}
-          renderMenu={ (items, value, style) => <div className="search-menu" style={{...this.menuStyle }} children={items}></div> }
-        />
+        <Autocomplete teams={ this.teams } players={ this.props.players } addPlayers={ this.addPlayers }/>
         <TeamSelector addPlayers={ this.addPlayers }/>
 
         <div class='selected-players'>
-          { this.maybeRenderPlayers() }
-          { this.maybeRenderPlayerDisplay() }
+          <PlayerDisplayList players={[...this.state.playerData]} removePlayer={this.removePlayer}/>
         </div>        
+
+        <div className='graph-container'>
+          <PlayerGraph players={ this.state.playerData } /> 
+          <PlayerVisualization players={ this.state.playerData }/>
+        </div>
       </div>
     ) 
   }

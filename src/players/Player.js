@@ -4,6 +4,7 @@ import ImageFallback from 'react-image-fallback';
 export default class Player extends Component {
   constructor(props){
     super(props);
+    console.log(this.props.player)
     let nameParts = this.props.player.fullname.split(" ");
     this.firstName = nameParts.shift().toLowerCase();
     this.lastName = [...nameParts].join("-").toLowerCase();
@@ -11,11 +12,11 @@ export default class Player extends Component {
   
   render() { 
     return ( 
-      <li className="player-card" onClick={ () => this.props.remove(this.props.player.fullname) }>
-        <div class='background-overlay'></div>
+      <li className="player-card" onClick={ () => this.props.remove(this.props.player._id) }>
+        <div class='background-overlay'></div> 
         <span>{this.props.player.fullname}</span>
         <ImageFallback src= {`../img/players/${this.firstName}_${this.lastName}.png`} fallbackImage={ "../img/etc/default.png" } />
       </li> 
-    )
+    ) 
   }
 }
