@@ -81,7 +81,7 @@ export default class PlayerSearch extends Component {
         this.setState({ 
           playerData: [...data.playersById],
           players: players
-        })
+        }) 
       })  
   }
 
@@ -96,7 +96,6 @@ export default class PlayerSearch extends Component {
       <div>
         <p class='legend'><small>Enter a player's name below to search. Adding a player after generating a plot will reset the plot data and filters.</small></p>
         <Autocomplete teams={ this.teams } players={ this.props.players } addPlayers={ this.addPlayers }/>
-        <TeamSelector addPlayers={ this.addPlayers }/>
 
         <div class='selected-players'>
           <PlayerDisplayList players={[...this.state.playerData]} removePlayer={this.removePlayer}/>

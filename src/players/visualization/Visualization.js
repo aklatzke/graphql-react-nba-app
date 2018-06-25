@@ -118,7 +118,7 @@ export default class Visualization extends Component{
                             title: "Team: " + teams[item.properties.team] + "<br />Position: " + item.properties.pos
                         })
                     }
-                    else{
+                    else{ 
                         nodes.push({
                             id: item.identity.low,
                             label: item.properties.name.charAt(0).toUpperCase() + item.properties.name.substring(1),
@@ -226,7 +226,7 @@ export default class Visualization extends Component{
         else{
             return {
                 width: "100%",
-                border: "1px solid #cdcdcd",
+                border: 0,
                 height: "500px",
                 backgroundColor: "#f5f5f5"
             }
@@ -235,16 +235,15 @@ export default class Visualization extends Component{
 
     toggleVizStyle = () => {
         this.setState({ isFullscreen : ! this.state.isFullscreen })
-    }
+    } 
 
     render(){
         return (
             <div className='player-vis'>
-                <h6 className='plot-heading'>Connections</h6>
-                <legend><small>Drag nodes to move them around. The graph will reorient afterwards. Scrollwheel to zoom. Click and drag to pan. It takes a few moments to load after adding a new player and the page may be unresponsive briefly if it's loading a significant dataset.</small></legend>
-                <div className='viz-container'>
+                <div className='viz-container' style={this.getVizStyle()}>
+                    <h6>Connections Visualization</h6>
                     <i className="fas fa-expand fullscreen-btn" onClick={this.toggleVizStyle}></i>
-                    <div id='viz' style={this.getVizStyle()}></div>                                 
+                    <div id='viz' style={{ height: "100%", width: "100%" }}></div>                                 
                 </div>
             </div>
         )

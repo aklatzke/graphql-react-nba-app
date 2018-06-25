@@ -49,7 +49,7 @@ export default class PlayerGraph extends Component {
       plot: {
         data: newStats,
         layout: {
-          width: 500,
+          width: 400,
           height: 450
         }
       }
@@ -96,7 +96,6 @@ export default class PlayerGraph extends Component {
     return ( 
       <div className='players-graph'>
         <h6 className='plot-heading'>Stats</h6>
-        <legend><small>Select items to add from the menus below.</small></legend>
         <div class='stats-buttons'>
           <ButtonGroup 
             label="Graph Types"

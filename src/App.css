@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500');
-
 .App {
   text-align: center;
 }
@@ -15,7 +14,7 @@
   color: white;
 }
 
-.App-header h1{
+.App-header h1 {
   text-align: left;
   font-size: 18px;
   margin: 0;
@@ -30,11 +29,15 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.search-input{
+.search-input {
   padding: 12px 18px;
   border-radius: 4px;
   font-size: 16px;
@@ -49,7 +52,7 @@
   text-align: center;
 }
 
-.search-result{
+.search-result {
   padding: 6px 6px;
   font-size: 14px;
   cursor: pointer;
@@ -63,11 +66,11 @@
   background-color: #fff;
 }
 
-.search-result:hover{
+.search-result:hover {
   background-color: #f6f6f6;
 }
 
-.search-menu{
+.search-menu {
   padding: 0px;
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -82,71 +85,93 @@
   top: calc(100% - 2px);
 }
 
-.search-menu:empty{
+.search-menu:empty {
   display: none;
 }
 
-.playerdisplaylist{
-  padding: 0px;
-  margin: 0px;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  margin-top: 20px;
+.playerdisplaylist {
+  padding: 0;
+  margin: 0;
   text-align: center;
   background-position: bottom;
   background-size: 100% auto;
+  background-color: #f5f5f5;
+  height: 75px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #cdcdcd;
+  border-top: 1px solid #cdcdcd;
 }
 
-.icon-wrapper img{
+.player-display-container {
+  position: relative;
+}
+
+.player-display-container h6 {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  margin: 0px;
+}
+
+.icon-wrapper img {
   height: 24px;
   float: right;
 }
 
-.player-card{
+.player-card {
   display: inline-block;
   position: relative;
   text-align: center;
-  border: 1px solid #222;
+  border: 1px solid #cdcdcd;
   border-radius: 4px;
   padding-top: 30px;
   margin-right: 20px;
   margin-left: 20px;
   margin-bottom: 20px;
+  height: 30px;
+  overflow: hidden;
+  width: 125px;
+  background-color: white;
 }
 
 .player-card span {
-  color: white;
-  font-size: 14px;
+  color: #222;
+  font-size: 12px;
   position: absolute;
   left: 0;
   right: 0;
   text-align: center;
-  top: 15px;
+  top: 5px;
   font-family: Montserrat;
-  font-weight: 500;
+  font-weight: 700;
 }
 
-.player-card img{
-  height: 100px;
+.player-card img {
+  height: 60px;
   margin-bottom: -4px;
+  position: relative;
+  top: -14px;
+  opacity: 1;
 }
 
-.player-card .background-overlay{
+.player-card .background-overlay {
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: rgba(0,0,0,.2)
+  background-color: rgba(0, 0, 0, .2)
 }
 
-.stats-buttons{
+.stats-buttons {
   margin-top: 20px;
-  padding-left: 60px;
-  padding-right: 60px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-.stats-buttons button{
+.stats-buttons button {
   margin-right: 4px;
   border: 1px solid #cdcdcd;
   display: inline-block;
@@ -154,9 +179,10 @@
   border-radius: 4px;
   margin-bottom: 10px;
   text-align: center;
+  
 }
 
-.stats-buttons button.active{
+.stats-buttons button.active {
   background-color: #333;
   color: white;
 }
@@ -171,11 +197,11 @@
   text-align: center;
 }
 
-.graph-types{
+.graph-types {
   margin-top: 20px;
 }
 
-.Select{
+.Select {
   display: inline-block;
   margin-left: 10px;
   vertical-align: middle;
@@ -183,20 +209,19 @@
   top: -4px;
 }
 
-.App .Select-control{
+.App .Select-control {
   height: 50px;
 }
 
-.App .Select-input input{
+.App .Select-input input {
   line-height: 36px;
 }
 
-.App .Select-placeholder{
+.App .Select-placeholder {
   line-height: 50px;
   font-family: Montserrat;
 }
 
-.players-graph{
-  width: 50%;
-  float: left;
+h6{
+  font-size: 12px;
 }

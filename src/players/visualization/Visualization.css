@@ -1,18 +1,18 @@
 .player-vis{
-    width: 49%;
-    float: right;
-    padding-right: 40px;
+    width: 69%;
+    float: left;
     box-sizing: border-box;
+    position: relative;
 }
 
 #viz{
 }
 
 h6.plot-heading{
-    font-size: 18px;
-    font-weight: 100;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin: 0px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
 
 .graph-container{
@@ -25,6 +25,13 @@ h6.plot-heading{
     position: relative;
 }
 
+.viz-container > h6{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    margin: 0px;
+}
+
 .fullscreen-btn{
     position: absolute;
     right: 20px;
@@ -32,4 +39,11 @@ h6.plot-heading{
     z-index: 9999999999999999;
     font-size: 24px;
     cursor: pointer
+}
+
+.players-graph {
+    width: 31%;
+    float: right;
+    position: relative;
+    padding-top: 25px;
 }

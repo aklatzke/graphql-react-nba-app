@@ -18,12 +18,12 @@ export default class PlayerDisplayList extends Component {
       this.setState({
         players: this.props.players
       })
-    }
-  }
+    } 
+  } 
 
   renderPlayers(){
     return this.state.players.map( player => <Player key={ player._id } player={ player } remove={ this.removePlayer }></Player> );
-  }   
+  }     
 
   removePlayer = (id) => {
     this.props.removePlayer( id )
@@ -31,8 +31,9 @@ export default class PlayerDisplayList extends Component {
      
   render() {
     return (
-      <div>
-        <ul className="playerdisplaylist" style={{ backgroundImage: "url(" + CourtBackground + ")" }}>
+      <div className='player-display-container'>
+        <h6>Selected Players</h6>
+        <ul className="playerdisplaylist">
           { this.renderPlayers() }
         </ul>
       </div>

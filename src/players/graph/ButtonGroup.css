@@ -3,6 +3,7 @@
     text-align:left;
     display: inline-block;
     margin-right: 4px;
+    margin-bottom: 4px;
 }
 
 .expand-button-container{
@@ -19,12 +20,13 @@
 }
 
 .expand-button button{
-    width: 120px;
+    width: 100px;
     font-weight: bold;
     text-align:center;
     border-left: 1px solid #cdcdcd;
     margin-right: 0px;
     margin-bottom: 0px;
+    font-size: 10px;
 }
 
 .expander .stat-button{

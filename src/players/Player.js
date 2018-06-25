@@ -13,9 +13,8 @@ export default class Player extends Component {
   render() { 
     return ( 
       <li className="player-card" onClick={ () => this.props.remove(this.props.player._id) }>
-        <div class='background-overlay'></div> 
-        <span>{this.props.player.fullname}</span>
         <ImageFallback src= {`../img/players/${this.firstName}_${this.lastName}.png`} fallbackImage={ "../img/etc/default.png" } />
+        <span>{this.props.player.fullname}</span>
       </li> 
     ) 
   }
