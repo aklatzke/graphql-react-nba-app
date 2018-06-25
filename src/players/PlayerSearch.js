@@ -103,8 +103,8 @@ export default class PlayerSearch extends Component {
         </div>        
 
         <div className='graph-container'>
-          <PlayerGraph players={ this.state.playerData } /> 
           <PlayerVisualization players={ this.state.playerData }/>
+          <PlayerGraph players={ this.state.playerData } /> 
         </div>
       </div>
     ) 

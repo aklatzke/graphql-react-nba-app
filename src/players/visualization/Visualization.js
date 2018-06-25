@@ -51,13 +51,9 @@ export default class Visualization extends Component{
             neo4jSession.run(`
                 MATCH 
                     (p:Player {name: '${firstPlayer}'})
-                        -[r:PLAYEDFOR{year:'2018'}]->
+                        -[r:PLAYEDFOR]->
                     (t:Team)
-                        -[r2:PLAYEDFOR{year:'2018'}]-
-                    (op:Player)
-                OPTIONAL MATCH 
-                    ( op )-[r3:PLAYEDFOR{year:'2018'}]-(ot:Team) 
-                RETURN *, COUNT(ot.name) as occurences`
+                RETURN *`
             )
             .subscribe({
                 onNext : (record) => {
@@ -113,7 +109,7 @@ export default class Visualization extends Component{
                         nodes.push({
                             id: item.identity.low,
                             label: item.properties.name,
-                            shape: "circularImage",
+                            shape: "circularImage", 
                             image: `../../img/players/${item.properties.name.toLowerCase().split(" ").join("_")}.png`,
                             brokenImage: `../../img/etc/default.png`,
                             group: teams[item.properties.team],
@@ -127,14 +123,14 @@ export default class Visualization extends Component{
                             id: item.identity.low,
                             label: item.properties.name.charAt(0).toUpperCase() + item.properties.name.substring(1),
                             shape: "circularImage",
-                            image: `../../img/${item.properties.name}.gif`,
+                            image: `../../img/${item.properties.name.replace(/ /g, "_")}.gif`,
                             size: 60,
                             shadow: true,
                             font: {
                                 size: 22
                             },
-                            group: item.properties.name,
-                            color: teamColors[item.properties.name]
+                            group: item.properties.nickname.toLowerCase(),
+                            color: teamColors[item.properties.nickname.toLowerCase()]
                         })
                     }
 
@@ -142,44 +138,24 @@ export default class Visualization extends Component{
                 }
 
                 if( item.type ){
-                    let itemKey = "" + item.start.low + item.end.low;
+                    if (!usedRelationships.includes(item.properties.years + item.start.low + item.end.low) ){
+                        usedRelationships.push(item.properties.years + item.start.low + item.end.low);
 
-                    if( edgesHash[itemKey] ){
-                        if( !edgesHash[itemKey].years.includes(parseInt(item.properties.year)) ){
-                            edgesHash[itemKey].years.push(parseInt(item.properties.year));
-                        }
-                    }
-                    else{
-                        edgesHash[itemKey] = {
-                            years: [ parseInt(item.properties.year) ],
+                        let itemKey = "" + item.start.low + item.end.low;
+
+                        edges.push({
                             from: item.start.low,
-                            to: item.end.low
-                        }
+                            to: item.end.low,
+                            label: item.properties.years,
+                            font: {
+                                align: 'middle'
+                            }
+                        })
                     }
                 }
             } )
         } )
 
-        Object.keys(edgesHash).forEach( key => {
-            let label;
-            let edge = edgesHash[key];
-
-            if( edge.years.length === 1 ){
-                label = edge.years[0] + "";
-            }
-            else {
-                label = Math.min(...edge.years) + "-" + Math.max(...edge.years);
-            }
-
-            edges.push({
-                from: edge.from,
-                to: edge.to,
-                label: label,
-                font: {
-                    align: "middle"
-                }
-            })
-        } )
         // create a network
         var container = document.getElementById('viz');
         var data = {
